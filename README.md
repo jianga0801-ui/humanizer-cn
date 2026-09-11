@@ -20,11 +20,28 @@ humanizer-zh 的示例会把模糊表述"升级"成看起来具体的假细节�
 
 ### 方式一：skills CLI（推荐）
 
+先预览仓库里有哪些 skill（只解析、不安装）：
+
 ```bash
-npx skills add jianga0801-ui/humanizer-cn --global
+npx skills add jianga0801-ui/humanizer-cn --list
 ```
 
-去掉 `--global` 只装到当前项目；加 `--agent <name>` 或 `--agent '*'` 指定装给哪些 agent，然后重新加载它们的 skills。装好后用 `/humanizer-cn` 调用。
+安装（全局、复制文件而非软链、跳过交互提示）：
+
+```bash
+npx skills add jianga0801-ui/humanizer-cn -g --copy -y
+```
+
+常用参数（实测于 skills CLI v1.5.25）：
+
+- `-g, --global`：装到用户级（全局）；**不加则只装进当前项目目录**。
+- `-a, --agent <agents>`：指定装给哪些 agent。`-a '*'` 表示全部——本仓库实测会一次性写入数十个（实测 55 个）agent 目录，如 `.trae`、`.windsurf`、`.roo`、`.zcode` 等；只想装一个就指定具体 agent 名。
+- `-s, --skill <skills>`：指定 skill 名，本仓库用 `-s humanizer-cn`。
+- `--copy`：复制文件到 agent 目录；**不加则默认用软链（symlink）**。
+- `-y, --yes`：跳过确认与选择提示。
+- `-l, --list`：只列出可安装的 skill，不安装。
+
+装好后重新加载 agent 的 skills，用 `/humanizer-cn` 调用。
 
 ### 方式二：Claude Code 插件
 
