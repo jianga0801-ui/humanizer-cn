@@ -16,14 +16,46 @@ humanizer-zh 的示例会把模糊表述"升级"成看起来具体的假细节�
 
 ## 安装
 
-作为 Claude 插件（若托管在 Git 仓库）：
+仓库地址：<https://github.com/jianga0801-ui/humanizer-cn>
+
+### 方式一：skills CLI（推荐）
+
+```bash
+npx skills add jianga0801-ui/humanizer-cn --global
+```
+
+去掉 `--global` 只装到当前项目；加 `--agent <name>` 或 `--agent '*'` 指定装给哪些 agent，然后重新加载它们的 skills。装好后用 `/humanizer-cn` 调用。
+
+### 方式二：Claude Code 插件
+
+需要 Claude Code 2.1.142 及以上：
 
 ```text
-/plugin marketplace add <你的仓库>
+/plugin marketplace add jianga0801-ui/humanizer-cn
 /plugin install humanizer-cn@humanizer-cn
 ```
 
-手动安装：把整个 `humanizer-cn/` 目录复制到 agent 的 skills 目录（例如 `~/.agents/skills/` 或 `~/.claude/skills/`），确保 `SKILL.md` 在该目录根部。
+以插件方式安装后，用 `/humanizer-cn:humanizer-cn` 调用（格式为 `插件名:skill 名`）。
+
+### 方式三：git clone 到 skills 目录
+
+```bash
+# macOS / Linux
+git clone https://github.com/jianga0801-ui/humanizer-cn.git ~/.agents/skills/humanizer-cn
+```
+
+```powershell
+# Windows (PowerShell)
+git clone https://github.com/jianga0801-ui/humanizer-cn.git "$env:USERPROFILE\.agents\skills\humanizer-cn"
+```
+
+用 Claude Code 的话，把目标目录换成 `~/.claude/skills/humanizer-cn`（Windows：`%USERPROFILE%\.claude\skills\humanizer-cn`）。
+
+### 方式四：手动复制
+
+下载仓库 ZIP 并解压，或把整个 `humanizer-cn/` 目录复制到 agent 的 skills 目录，确保 `SKILL.md` 位于该目录根部。
+
+装好后重启或重新加载 agent 的 skills，输入 `/humanizer-cn` 验证是否生效。
 
 ## 使用
 
