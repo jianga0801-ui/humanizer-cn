@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "humanizer-cn",
+  "description": "去除中文文本的 AI 写作痕迹，保住作者声音与全部事实，绝不编造。",
+  "version": "1.0.0",
+  "author": {
+    "name": "humanizer-cn"
+  },
+  "license": "MIT",
+  "keywords": ["writing", "editing", "humanize", "chinese", "prose", "style", "去AI味"],
+  "skills": ["./"]
+}
